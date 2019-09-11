@@ -1,0 +1,3 @@
+---
+- src: sirreeall.linux_base_config
+- src: sirreeall.docker_ce
