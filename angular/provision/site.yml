@@ -6,3 +6,6 @@
         name: sirreeall.linux_base_config
     - include_role:
         name: geerlingguy.nodejs
+      vars:
+        nodejs_npm_global_packages: 
+        - '@angular/cli'
