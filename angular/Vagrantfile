@@ -1,0 +1,40 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+##
+# Changeable section
+##
+
+BASE_BOX= "centos/7"
+# Host name
+HOSTNAME = "angular"
+# public inferace
+PUBLIC_NIC = "Intel(R) Wireless-AC 9560 160MHz"
+# private interace address
+PRIVATE_IP = "192.168.100.19"
+
+Vagrant.configure("2") do |config|
+  config.vm.box = BASE_BOX
+  config.vm.hostname = HOSTNAME
+  config.vm.define HOSTNAME
+
+  config.vm.network "public_network", bridge: PUBLIC_NIC
+  config.vm.network "private_network", ip: PRIVATE_IP
+  
+  # override default forwarded port for ssh
+  config.vm.network :forwarded_port, guest: 22, host: 2229, id: "ssh"
+
+  config.vm.synced_folder ".", "/vagrant", disabled: false
+
+  config.vm.provider :virtualbox do |v|
+    v.customize ["modifyvm", :id, "--audio", "none"]
+    v.customize ["modifyvm", :id, "--memory", 4096]
+    v.customize ["modifyvm", :id, "--cpus", 6]
+    v.customize ["modifyvm", :id, "--name", HOSTNAME]
+  end
+
+  config.vm.provision "ansible_local" do |ansible|
+    ansible.playbook = "provision/site.yml"
+    ansible.galaxy_role_file = "provision/requirements.yml"
+  end
+end

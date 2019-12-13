@@ -1,0 +1,8 @@
+---
+- hosts: all
+  become: true
+  tasks:
+    - include_role:
+        name: sirreeall.linux_base_config
+    - include_role:
+        name: geerlingguy.nodejs
