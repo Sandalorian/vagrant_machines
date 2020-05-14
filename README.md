@@ -4,9 +4,9 @@ This is a list of Vagrant machine that I find useful for setting up environment 
 
 Click on the below links to see more information on each machine.
 
-1. angular
-2. ansible
-3. ActiveDirectory
+1. [angular](angular/README.md)
+2. [ansible](ansible/README.md)
+3. [ActiveDirectory](ActiveDirectory/README.md)
 
 ## Usage
 
