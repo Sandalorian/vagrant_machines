@@ -40,7 +40,8 @@ New-ADUser `
     -DisplayName 'John Doe' `
     -AccountPassword $password `
     -Enabled $true `
-    -PasswordNeverExpires $true
+    -PasswordNeverExpires $true `
+    -ChangePasswordAtLogon $false 
 
 # add Jane Doe.
 $name = 'jane.doe'
@@ -54,7 +55,8 @@ New-ADUser `
     -DisplayName 'Jane Doe' `
     -AccountPassword $password `
     -Enabled $true `
-    -PasswordNeverExpires $true
+    -PasswordNeverExpires $true `
+    -ChangePasswordAtLogon $false 
 
 # add Joe Bloggs.
 $name = 'joe.bloggs'
@@ -68,5 +70,5 @@ New-ADUser `
     -DisplayName 'Joe Bloggs' `
     -AccountPassword $password `
     -Enabled $true `
-    -PasswordNeverExpires $true
-
+    -PasswordNeverExpires $true `
+    -ChangePasswordAtLogon $false 
