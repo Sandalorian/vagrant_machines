@@ -1,0 +1,8 @@
+/*
+/*/
+.vagrant
+!/ansible/
+!/angular/
+!/ActiveDirectory/
+!README.md
+!.gitignore

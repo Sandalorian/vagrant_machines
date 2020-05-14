@@ -1,0 +1,55 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+VAGRANTFILE_API_VERSION = "2"
+BASE_BOX = "gusztavvargadr/windows-server"
+BASE_BOX_VERSION = "1607-standard"
+HOSTNAME = "dc01"
+GUEST_OS = :windows
+SSH_FORWARD_PORT = "52225"
+
+DOMAIN = "example.com"
+
+PRIVATE_NETWORK_IP = "192.168.100.25"
+
+# public inferace
+PUBLIC_NIC = "Intel(R) Wireless-AC 9560 160MHz"
+
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+
+  ## do not configure proxy 
+  if Vagrant.has_plugin?("vagrant-proxyconf")
+    config.proxy.enabled = false
+  end
+
+  config.vm.guest = GUEST_OS
+
+  # See https://groups.google.com/forum/#!topic/vagrant-up/sZantuCM0q4
+  config.winrm.transport = :plaintext
+  config.winrm.basic_auth_only = true
+
+
+  # host port is incremented to allow vagrant.exe rdp command to work on Win 10
+  config.vm.network "forwarded_port", guest: 3389, host: 3390, auto_correct: true
+
+  # override default forwarded port for ssh
+  config.vm.network :forwarded_port, guest: 22, host: SSH_FORWARD_PORT, id: "ssh"
+
+  config.vm.network "private_network", ip: PRIVATE_NETWORK_IP
+
+  config.vm.box = BASE_BOX
+  config.vm.box_version = BASE_BOX_VERSION
+  config.vm.define HOSTNAME
+  config.vm.hostname = HOSTNAME
+  config.vm.synced_folder '.', '/vagrant', disabled: true
+  config.vm.provider :virtualbox do |v|
+    v.customize ["modifyvm", :id, "--audio", "none"]
+    v.customize ["modifyvm", :id, "--memory", 8192]
+    v.customize ["modifyvm", :id, "--cpus", 2]
+    v.customize ["modifyvm", :id, "--name", HOSTNAME]
+  end
+
+  config.vm.provision "shell", path: "setup-AD.ps1", args: [DOMAIN]
+  config.vm.provision "shell", reboot: true
+  config.vm.provision "shell", path: "provision-users-and-groups.ps1"
+end
