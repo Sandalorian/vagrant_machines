@@ -49,7 +49,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     v.customize ["modifyvm", :id, "--name", HOSTNAME]
   end
 
-  config.vm.provision "shell", path: "setup-AD.ps1", args: [DOMAIN]
+  config.vm.provision "shell", path: "provision/setup-AD.ps1", args: [DOMAIN]
   config.vm.provision "shell", reboot: true
-  config.vm.provision "shell", path: "provision-users-and-groups.ps1"
+  config.vm.provision "shell", path: "provision/provision-users-and-groups.ps1"
 end
