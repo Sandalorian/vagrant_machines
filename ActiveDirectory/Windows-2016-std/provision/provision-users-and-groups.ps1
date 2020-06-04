@@ -16,11 +16,10 @@ $adDomain = Get-ADDomain
 $domain = $adDomain.DNSRoot
 $domainDn = $adDomain.DistinguishedName
 
-$usersOU = "Alfresco Users"
-$groupsOU = "Alfresco Groups"
+$usersOU = "Alfresco-Users"
+$groupsOU = "Alfresco-Groups"
 
 $usersOUDn = "OU=$usersOU,$domainDn"
-$groupsOUDn = "OU=$groupsOU,$domainDn"
 
 # No groups are actually created, just and OU to hold the groups
 New-ADOrganizationalUnit -Name $groupsOU -Path $domainDn
