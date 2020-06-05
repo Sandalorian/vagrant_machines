@@ -1,6 +1,9 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
+CREATE_KEY_TAB = true
+ACS_HOSTNAME = "acs1"
+
 VAGRANTFILE_API_VERSION = "2"
 BASE_BOX = "gusztavvargadr/windows-server-2016-standard"
 BASE_BOX_VERSION = "2005.0.0"
@@ -52,4 +55,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provision "shell", path: "provision/setup-AD.ps1", args: [DOMAIN]
   config.vm.provision "shell", reboot: true
   config.vm.provision "shell", path: "provision/provision-users-and-groups.ps1"
+  if CREATE_KEY_TAB
+    config.vm.provision "shell", path: "provision/provision-kerberos-principle.ps1", args: [ACS_HOSTNAME]
+  else
+    
+  end
 end

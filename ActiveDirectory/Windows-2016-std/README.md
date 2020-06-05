@@ -11,6 +11,8 @@ Value | Default | Remarks
 HOSTNAME | "dc01" | Hostname applied to the VM, vagrant, and the OS
 SSH_FORWARD_PORT | "52225" | SSH port to avoid any conflicts with multiple VM's setup on the same host
 DOMAIN | "example.com" | AD Domain that will be created
+CREATE_KEY_TAB | true | Enables or disables keytab creation
+ACS_HOSTNAME | acs1 | The hostname of the server that a keytab is being created for
 PRIVATE_NETWORK_IP | "192.168.100.25" | Static IP address assigned to private network
 PUBLIC_NIC | "Intel(R) Wireless-AC 9560 160MHz" | Name of the interface that vagrant NAT should be bound to
 
