@@ -15,8 +15,6 @@ DOMAIN = "example.com"
 
 PRIVATE_NETWORK_IP = "192.168.100.25"
 
-# public inferace
-PUBLIC_NIC = "Intel(R) Wireless-AC 9560 160MHz"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
