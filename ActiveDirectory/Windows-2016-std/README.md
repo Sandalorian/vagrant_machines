@@ -1,6 +1,6 @@
 # Vagrant Machine: Active Directory: Windows Server 2016 Standard
 
-This machine was designed to quickly setup AD/ LADP or Kerberos when troubleshooting Alfresco Content Service issues. This is why you will find the OU's that are created have the names `Alfresco Users` and `Alfresco Groups`
+This machine was designed to quickly setup AD/ LADP or Kerberos when troubleshooting Alfresco Content Service issues. This is why you will find the OU's that are created have the names `Alfresco-Users` and `Alfresco-Groups`
 
 Vagrant is used to provision AD and a few test users.
 
