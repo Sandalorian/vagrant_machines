@@ -1,7 +1,11 @@
 param(
-    $hostname = 'acs1'
+    $hostname
 )
 
+if (!$hostname) { 
+    Write-Host "Keytab cannot be created as ACS server name not specified. Exiting..." 
+    exit
+}
 
 while ($true) {
     try {
