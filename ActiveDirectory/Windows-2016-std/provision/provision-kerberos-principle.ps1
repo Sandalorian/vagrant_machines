@@ -1,9 +1,14 @@
 param(
-    $hostname
+    $hostname, $password
 )
 
 if (!$hostname) { 
     Write-Host "Keytab cannot be created as ACS server name not specified. Exiting..." 
+    exit
+}
+
+if (!$password) {
+    Write-Host "Keytab cannot be created as Kerberos password not specified. Exiting..." 
     exit
 }
 
@@ -20,7 +25,7 @@ $adDomain = Get-ADDomain
 $domain = $adDomain.DNSRoot
 $domainDn = $adDomain.DistinguishedName
 
-$password = ConvertTo-SecureString -AsPlainText 'HeyH0Password' -Force
+$password = ConvertTo-SecureString -AsPlainText $password -Force
 
 # Note that the Users object in AD is NOT an OU.
 # If you change this to a different loction that is an OU,

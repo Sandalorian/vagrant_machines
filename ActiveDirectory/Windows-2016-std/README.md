@@ -13,6 +13,7 @@ SSH_FORWARD_PORT | "52225" | SSH port to avoid any conflicts with multiple VM's 
 DOMAIN | "example.com" | AD Domain that will be created
 CREATE_KEY_TAB | true | Enables or disables keytab creation
 ACS_HOSTNAME | acs1 | The hostname of the server that a keytab is being created for
+ACS_KEYTAB_PASSWORD | ComplexPassw0rd | The password that is set on the Kerberos enabled AD account
 PRIVATE_NETWORK_IP | "192.168.100.25" | Static IP address assigned to private network
 
 ## Acknowledgements

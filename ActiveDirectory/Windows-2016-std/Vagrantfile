@@ -3,6 +3,7 @@
 
 CREATE_KEY_TAB = true
 ACS_HOSTNAME = "acs1"
+ACS_KEYTAB_PASSWORD = "ComplexPassw0rd"
 
 VAGRANTFILE_API_VERSION = "2"
 BASE_BOX = "gusztavvargadr/windows-server-2016-standard"
@@ -54,7 +55,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provision "shell", reboot: true
   config.vm.provision "shell", path: "provision/provision-users-and-groups.ps1"
   if CREATE_KEY_TAB
-    config.vm.provision "shell", path: "provision/provision-kerberos-principle.ps1", args: [ACS_HOSTNAME]
+    config.vm.provision "shell", path: "provision/provision-kerberos-principle.ps1", args: [ACS_HOSTNAME, ACS_KEYTAB_PASSWORD]
   else
     
   end
