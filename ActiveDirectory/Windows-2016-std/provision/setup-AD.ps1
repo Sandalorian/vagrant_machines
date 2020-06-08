@@ -4,7 +4,7 @@ param(
 
 $ErrorActionPreference = "Stop"
 
-Write-Host "Hostname:" hostname
+Write-Host "Hostname:" $env:computername
 Write-Host "Installing Active Directory"
 
 $netbiosDomain = ($domain -split '\.')[0].ToUpperInvariant()
