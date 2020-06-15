@@ -16,6 +16,25 @@ ACS_HOSTNAME | acs1 | The hostname of the server that a keytab is being created 
 ACS_KEYTAB_PASSWORD | ComplexPassw0rd | The password that is set on the Kerberos enabled AD account
 PRIVATE_NETWORK_IP | "192.168.100.25" | Static IP address assigned to private network
 
+## Default Users
+
+The Vagrant box is preconfigured with a **local** vagrant user. You can access the machine using this **local** user after first deployment:
+
+Username | Password | Role
+--- | --- | ---
+vagrant | vagrant | administrator
+
+(As this user is **local** you will need to prefix the username with the NetBIOS name followed by a '\')
+
+The following users are created as part of the [provisioning script](provision\provision-users-and-groups.ps1):
+
+Username | Password | Role
+--- | --- | ---
+john.doe | HeyH0Password | Domain User
+jane.doe | HeyH0Password | Domain User
+joe.bloggs | HeyH0Password | Domain User
+
+
 ## Acknowledgements
 
 This Vagrant machine is based on [this](https://github.com/rgl/windows-domain-controller-vagrant) repository
