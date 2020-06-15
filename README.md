@@ -18,7 +18,7 @@ There are some prerequisite that are required before being able to use this repo
 - VirtualBox 6.0.8
 
 Once installed, it's a simple case of:
-1. Cloning the Github repository, 
+1. Cloning or download the Github repository, 
 2. Navigating to the respective machines directory,
 3. Run `vagrant up`
 
