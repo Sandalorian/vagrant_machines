@@ -18,13 +18,13 @@ PRIVATE_NETWORK_IP | "192.168.100.25" | Static IP address assigned to private ne
 
 ## Default Users
 
-The Vagrant box is preconfigured with a **local** vagrant user. You can access the machine using this **local** user after first deployment:
+The Vagrant box is preconfigured with a **local** vagrant user. You can access the machine using this **local** user after deployment:
 
 Username | Password | Role
 --- | --- | ---
 vagrant | vagrant | administrator
 
-(As this user is **local** you will need to prefix the username with the NetBIOS name followed by a '\')
+(As this user is **local** you will need to prefix the username with the NetBIOS name followed by a '\'. For example: dc01\vagrant)
 
 The following users are created as part of the [provisioning script](provision\provision-users-and-groups.ps1):
 
