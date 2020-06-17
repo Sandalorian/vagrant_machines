@@ -51,6 +51,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     v.customize ["modifyvm", :id, "--name", HOSTNAME]
   end
 
+  config.vm.provider :hyperv do |h|
+    h.memory=4096
+    h.cpus=2
+    h.vmname=HOSTNAME
+  end
+
   config.vm.provision "shell", path: "provision/setup-AD.ps1", args: [DOMAIN]
   config.vm.provision "shell", reboot: true
   config.vm.provision "shell", path: "provision/provision-users-and-groups.ps1"
