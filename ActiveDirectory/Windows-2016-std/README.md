@@ -34,6 +34,9 @@ john.doe | HeyH0Password | Domain User
 jane.doe | HeyH0Password | Domain User
 joe.bloggs | HeyH0Password | Domain User
 
+## Caveats
+
+Make sure you install the required software as listed [here](https://github.com/sirReeall/vagrant_machines#usage)
 
 ## Acknowledgements
 
