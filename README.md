@@ -8,7 +8,7 @@ Click on the below links to see more information on each machine.
 2. [ansible](ansible/README.md)
 3. [ActiveDirectory](ActiveDirectory/README.md)
 
-## Usage
+## Requirements
 
 I have only tested these machines on **Windows 10** and therefore I'm not sure if there are issues on other host machines.
 
