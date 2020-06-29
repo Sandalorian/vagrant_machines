@@ -15,7 +15,7 @@ I have only tested these machines on **Windows 10** and therefore I'm not sure i
 There are some prerequisite that are required before being able to use this repository:
 
 - Vagrant 2.2.7
-- VirtualBox 6.0.8
+- VirtualBox 6.0.8 or Hyper-v (sorry VMWare peeps, Vagrant charge a license for a VMWare plugin)
 
 Once installed, it's a simple case of:
 1. Cloning or download the Github repository, 
