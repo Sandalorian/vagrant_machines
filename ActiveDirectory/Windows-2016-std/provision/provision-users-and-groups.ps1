@@ -10,7 +10,7 @@ while ($true) {
 }
 
 
-$password = ConvertTo-SecureString -AsPlainText 'HeyH0Password' -Force
+$password = ConvertTo-SecureString -AsPlainText 'ComplexPassw0rd' -Force
 
 $adDomain = Get-ADDomain
 $domain = $adDomain.DNSRoot
