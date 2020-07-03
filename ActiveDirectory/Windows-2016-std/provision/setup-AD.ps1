@@ -9,7 +9,7 @@ Write-Host "Installing Active Directory"
 
 $netbiosDomain = ($domain -split '\.')[0].ToUpperInvariant()
 
-$safeModeAdminstratorPassword = ConvertTo-SecureString 'HeyH0Password' -AsPlainText -Force
+$safeModeAdminstratorPassword = ConvertTo-SecureString 'ComplexPassw0rd' -AsPlainText -Force
 
 # make sure the Administrator has a password that meets the minimum Windows
 # password complexity requirements (otherwise the AD will refuse to install).

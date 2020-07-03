@@ -58,9 +58,9 @@ The following users are created as part of the [provisioning script](provision/p
 
 Username | Password | Role
 --- | --- | ---
-john.doe | HeyH0Password | Domain User
-jane.doe | HeyH0Password | Domain User
-joe.bloggs | HeyH0Password | Domain User
+john.doe | ComplexPassw0rd | Domain User
+jane.doe | ComplexPassw0rd | Domain User
+joe.bloggs | ComplexPassw0rd | Domain User
 
 ## Acknowledgements
 
