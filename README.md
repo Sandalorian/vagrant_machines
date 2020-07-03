@@ -17,8 +17,10 @@ There are some prerequisite that are required before being able to use this repo
 - Vagrant 2.2.7
 - VirtualBox 6.0.8 or Hyper-v (sorry VMWare peeps, Vagrant charge a license for a VMWare plugin)
 
-Once installed, it's a simple case of:
-1. Cloning or download the Github repository, 
+## Getting Started
+
+This is pretty simple:
+1. Clone or download the Github repository, 
 2. Navigating to the respective machines directory,
 3. Run `vagrant up`
 
