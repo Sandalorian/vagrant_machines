@@ -53,9 +53,6 @@ New-ADUser `
 
 # create keytab file
 
-# $cmd = "ktpass -out " + $srv + "_keytab -pass C0mplic4ted_p@ss -princ HOST/" + $srv + ".bom.gov.au@BOM.GOV.AU -mapuser host_" + $srv + " -ptype KRB5_NT_PRINCIPAL /crypto AES256-SHA1"
-# 	iex $cmd
-
 $cmd = "ktpass -princ HTTP/" + $hostname + "." + $domain + "@" + $domain.ToUpper() + `
         " -pass " + $password + `
         " -mapuser " + $adDomain.NetBIOSName + "\" + $name + `
