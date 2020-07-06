@@ -28,6 +28,20 @@ Parameter | Default | Remarks
 `HOSTNAME` | "dc01" | Hostname applied to the VM, vagrant, and the OS
 `DOMAIN` | "example.com" | AD Domain that will be created
 
+### Ldap user configurations
+
+The user account is created with the following attributes:
+```
+    givenName:    alfresco
+    sn:           ldap
+```
+
+Parameter | Default | Remarks
+--- | --- | ---
+CREATE_LDAP_USER | true | Enables or disabled ldap user creation
+LDAP_USER_USERNAME | "alfresco.ldap" | This is the username that the ldap user will have. Attributes sAMAccountName, userPrincipalName, displayName and email are also set using this value
+LDAP_USER_PASSWORD | "C0mplexPassword" | This is the password that the ldap user will have
+
 ### Kerberos and Keytab Configurations
 
 Parameter | Default | Remarks

@@ -12,6 +12,21 @@ HOSTNAME = "dc01"
 DOMAIN = "example.com"
 
 #
+# Settings related to creating ldap sync user.
+# 
+# The user account is created with the following attributes:
+#     givenName:    alfresco
+#     sn:           ldap
+# CREATE_LDAP_USER - You can disable automatic create of a ldap sync user by setting this to false
+# LDAP_USER_USERNAME -  This is the username that the ldap user will have. 
+#                       Attributes sAMAccountName, userPrincipalName, displayName and email are also set using this value
+# LDAP_USER_PASSWORD - This is the password that the ldap user will have
+
+CREATE_LDAP_USER = true
+LDAP_USER_USERNAME = "alfresco.ldap"
+LDAP_USER_PASSWORD = "C0mplexPassword"
+
+#
 # Settings related to creating a keytab file
 #
 # CREATE_KEY_TAB - You can disbale automatic creation of a keytab by setting this to false.
@@ -89,6 +104,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provision "shell", path: "provision/provision-users-and-groups.ps1"
   if CREATE_KEY_TAB
     config.vm.provision "shell", path: "provision/provision-kerberos-principle.ps1", args: [ACS_HOSTNAME, ACS_KEYTAB_PASSWORD]
+  else
+    
+  end
+
+  if CREATE_LDAP_USER
+    config.vm.provision "shell", path: "provision/provision-ldap-sync-user.ps1", args: [LDAP_USER_USERNAME, LDAP_USER_PASSWORD]
   else
     
   end
