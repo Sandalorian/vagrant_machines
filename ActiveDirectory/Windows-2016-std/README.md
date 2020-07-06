@@ -10,6 +10,7 @@ This automates the following processes:
 5. Creates two OU's: Alfresco-Users and Alfresco-Groups
 6. Creates test user's in Alfresco-Users OU
 7. Creates a Kerberos delegated account and associated keytab file
+8. Creates a user account that can be used for ldap synchronisation 
 
 ## Geting Started
 
