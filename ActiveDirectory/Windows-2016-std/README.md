@@ -39,9 +39,9 @@ The user account is created with the following attributes:
 
 Parameter | Default | Remarks
 --- | --- | ---
-CREATE_LDAP_USER | true | Enables or disabled ldap user creation
-LDAP_USER_USERNAME | "alfresco.ldap" | This is the username that the ldap user will have. Attributes sAMAccountName, userPrincipalName, displayName and email are also set using this value
-LDAP_USER_PASSWORD | "C0mplexPassword" | This is the password that the ldap user will have
+`CREATE_LDAP_USER` | true | Enables or disabled ldap user creation
+`LDAP_USER_USERNAME` | "alfresco.ldap" | This is the username that the ldap user will have. Attributes sAMAccountName, userPrincipalName, displayName and email are also set using this value
+`LDAP_USER_PASSWORD` | "C0mplexPassword" | This is the password that the ldap user will have
 
 ### Kerberos and Keytab Configurations
 
