@@ -12,14 +12,33 @@ HOSTNAME = "dc01"
 DOMAIN = "example.com"
 
 #
+# Settings related to creating a domain admin user
+# 
+# This allows creation of a user account that is automatically added to the domain admins and enterprise admins groups
+#
+# CREATE_DOMAIN_ADMIN - You can disable automatic creation of a domain admin user by setting this to false
+# DOMAIN_ADMIN_GIVENNAME - The value assigned to attribute givenName
+# DOMAIN_ADMIN_SN - The value assigned to attribute sn
+# DOMAIN_ADMIN_USERNAME - This is the username that the domain admin will have. 
+#                         Attributes sAMAccountName, userPrincipalName, displayName and email are also set using this value
+# DOMAIN_ADMIN_PASSWORD - This is the password that the domain admin will have
+
+CREATE_DOMAIN_ADMIN = true
+DOMAIN_ADMIN_GIVENNAME = "yoda"
+DOMAIN_ADMIN_SN = " "
+DOMAIN_ADMIN_USERNAME = "yoda"
+DOMAIN_ADMIN_PASSWORD = "UseTheF0rce"
+
+#
 # Settings related to creating ldap sync user.
 # 
 # The user account is created with the following attributes:
 #     givenName:    alfresco
 #     sn:           ldap
-# CREATE_LDAP_USER - You can disable automatic create of a ldap sync user by setting this to false
+#     displayName:  alfresco ldap
+# CREATE_LDAP_USER - You can disable automatic creation of a ldap sync user by setting this to false
 # LDAP_USER_USERNAME -  This is the username that the ldap user will have. 
-#                       Attributes sAMAccountName, userPrincipalName, displayName and email are also set using this value
+#                       Attributes sAMAccountName, userPrincipalName,  and email are also set using this value
 # LDAP_USER_PASSWORD - This is the password that the ldap user will have
 
 CREATE_LDAP_USER = true
@@ -104,13 +123,13 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provision "shell", path: "provision/provision-users-and-groups.ps1"
   if CREATE_KEY_TAB
     config.vm.provision "shell", path: "provision/provision-kerberos-principle.ps1", args: [ACS_HOSTNAME, ACS_KEYTAB_PASSWORD]
-  else
-    
   end
 
   if CREATE_LDAP_USER
     config.vm.provision "shell", path: "provision/provision-ldap-sync-user.ps1", args: [LDAP_USER_USERNAME, LDAP_USER_PASSWORD]
-  else
-    
+  end
+
+  if CREATE_DOMAIN_ADMIN
+    config.vm.provision "shell", path: "provision/provision-domain-admin.ps1", args: [DOMAIN_ADMIN_GIVENNAME, DOMAIN_ADMIN_SN, DOMAIN_ADMIN_USERNAME, DOMAIN_ADMIN_PASSWORD]
   end
 end
