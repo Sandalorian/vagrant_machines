@@ -17,7 +17,7 @@ DOMAIN = "example.com"
 # This allows creation of a user account that is automatically added to the domain admins and enterprise admins groups
 #
 # CREATE_DOMAIN_ADMIN - You can disable automatic creation of a domain admin user by setting this to false
-# DOMAIN_ADMIN_GIVENNAME - The value assigned to attribute givenName
+# DOMAIN_ADMIN_GIVENNAME - The value assigned to attribute cde /
 # DOMAIN_ADMIN_SN - The value assigned to attribute sn
 # DOMAIN_ADMIN_USERNAME - This is the username that the domain admin will have. 
 #                         Attributes sAMAccountName, userPrincipalName, displayName and email are also set using this value
